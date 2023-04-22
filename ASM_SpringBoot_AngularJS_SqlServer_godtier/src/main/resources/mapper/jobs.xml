@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.HHTCompany.mapper.jobsMapper">
+
+	<resultMap id="jobsModel"
+		type="com.HHTCompany.entity.jobs">
+		<result column="idJobs" property="idJobs" />
+		<result column="imgCountry" property="imgCountry" />
+		<result column="logoCompany" property="logoCompany" />
+		<result column="nameCompany" property="nameCompany" />
+		<result column="discription" property="discription" />
+		<result column="hiddenDescription" property="hiddenDescription" />
+		<result column="timeWork" property="timeWork" />
+		<result column="isOpen" property="isOpen" />
+		<result column="header" property="header" />
+		<result column="salary" property="salary" />
+	</resultMap>
+
+	<select id="getAllJobs" resultMap="jobsModel">
+		SELECT 
+			idJobs,
+			imgCountry,
+			logoCompany,
+			nameCompany,
+			discription,
+			hiddenDescription,
+			timeWork,
+			isOpen,
+			header,
+			salary
+		FROM JOBS
+		WHERE 1 = 1 
+	</select>
+	
+	<select id="getAllJobsForContrain" resultMap="jobsModel">
+		SELECT 
+			idJobs,
+			imgCountry,
+			logoCompany,
+			nameCompany,
+			discription,
+			hiddenDescription,
+			timeWork,
+			isOpen,
+			header,
+			salary
+		FROM JOBS
+		WHERE nameCompany like #{nameCompany}
+		and imgCountry like #{imgCountry}
+		and timeWork like #{timeWork}
+		and salary >= #{salary}
+	</select>
+</mapper>

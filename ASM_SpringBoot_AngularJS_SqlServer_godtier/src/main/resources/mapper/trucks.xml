@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.HHTCompany.mapper.trucksMapper">
+
+	<resultMap id="trucksModel"
+		type="com.HHTCompany.entity.trucks">
+		<result column="trucksID" property="trucksID" />
+		<result column="imageTrucks" property="imageTrucks" />
+		<result column="nameTrucks" property="nameTrucks" />
+	</resultMap>
+
+	<select id="getAllTrucks" resultMap="trucksModel">
+		SELECT
+		[trucksID],
+		[imageTrucks],
+		[nameTrucks]
+		FROM TRUCKS
+		WHERE 1= 1
+	</select>
+</mapper>

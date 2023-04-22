@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.HHTCompany.mapper.reviewsMapper">
+
+	<resultMap id="reviewsModel"
+		type="com.HHTCompany.entity.reviews">
+		<result column="imgReviews" property="imgReviews" />
+		<result column="header" property="header" />
+		<result column="main" property="main" />
+	</resultMap>
+
+	<select id="getAllReviews" resultMap="reviewsModel">
+		SELECT
+		[imgReviews],
+		[header],
+		[main]
+		FROM REVIEWS
+		WHERE 1= 1
+	</select>
+</mapper>
